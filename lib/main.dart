@@ -10,7 +10,9 @@ import 'package:emosense/screens/auth/login_screen.dart'; // Import the login sc
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 

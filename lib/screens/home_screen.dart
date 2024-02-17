@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,8 @@ import '/models/image_model.dart';
 import '/models/quote_model.dart';
 import '/services/api_service.dart';
 import '/screens/auth/login_screen.dart';
+
+import 'package:http/http.dart' as http;
 
 // class HomeScreen extends StatefulWidget {
 //   @override
@@ -314,6 +317,37 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Future<void> sendDataToEndpoint(String message, File imageFile) async {
+    try {
+      // Encode the image file to base64
+      List<int> imageBytes = await imageFile.readAsBytes();
+      String base64Image = base64Encode(imageBytes);
+
+      // Prepare the data to be sent in the request body
+      Map<String, dynamic> requestBody = {
+        'text_input': message,
+        'image': base64Image,
+      };
+
+      // Send a POST request to the endpoint
+      final response = await http.post(
+        // Uri.parse('http://192.168.197.1:5000/messages/face'),
+        Uri.parse('http://172.16.128.173:5000/messages/face'),
+        body: requestBody,
+      );
+
+      // Check if the request was successful (status code 200)
+      if (response.statusCode == 200) {
+        print('Data sent successfully');
+        print(response);
+      } else {
+        print('Failed to send data: ${response.reasonPhrase}');
+      }
+    } catch (error) {
+      print('Error sending data: $error');
+    }
+  }
+
   // Method to send a message and take a photo
   void _sendMessage() async {
     // Take a photo
@@ -329,6 +363,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
     // Clear the message input field
     _messageController.clear();
+
+    // Send data to the endpoint
+    await sendDataToEndpoint(textMessage, _imageFile!);
 
     // Simulate bot response with a delay
     setState(() {
