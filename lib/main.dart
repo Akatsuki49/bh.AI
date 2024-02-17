@@ -1,5 +1,6 @@
 import 'package:emosense/firebase_options.dart';
 import 'package:emosense/screens/auth/firebase_auth_methods.dart';
+import 'package:emosense/screens/disclaimer.dart';
 import 'package:emosense/screens/landing_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
               return CircularProgressIndicator();
             }
             if (snapshot.hasData && snapshot.data != null) {
-              return HomeScreen(); // If user is logged in, show home screen
+              return Disclaimer(); // If user is logged in, show home screen
             } else {
               return LandingPage(); // If user is not logged in, show login screen
             }
