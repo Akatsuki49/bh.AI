@@ -56,7 +56,7 @@ class LandingPage extends StatelessWidget {
                 // ),
                 child: Image.asset(
                   'assets/images/get_started.png',
-                  width: screenWidth * 0.6,
+                  width: screenWidth * 0.2,
                   height: screenHeight * 0.2,
                 ),
               ),

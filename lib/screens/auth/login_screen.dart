@@ -53,9 +53,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: screenHeight * 0.1,
               ),
               const SizedBox(height: 100),
-              GoogleIconButton(
+              AuthIconButton(
                   labelText: 'Sign in with Google',
-                  imagePath: 'frontend/emosense/assets/images/google_icon.png',
+                  isSvg: false,
+                  icon: Icons.g_mobiledata,
                   onPress: onGoogleSignIn),
               const SizedBox(height: 15),
               const OrDivider(),
