@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
               return CircularProgressIndicator();
             }
             if (snapshot.hasData && snapshot.data != null) {
-              return Disclaimer(); // If user is logged in, show home screen
+              return HomeScreen(); // If user is logged in, show home screen
             } else {
               return LandingPage(); // If user is not logged in, show login screen
             }
