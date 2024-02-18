@@ -34,7 +34,7 @@ class MessageBubble extends StatelessWidget {
         child: Text(
           message.text,
           style: TextStyle(
-            color: message.isUser ? Colors.black : Colors.white,
+            color: message.isUser ? Colors.black : Color(0xff0070F0),
           ),
         ),
       ),
