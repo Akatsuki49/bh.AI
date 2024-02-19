@@ -76,7 +76,7 @@ bh.AI is built using Flutter for the frontend, Flask for the backend, Mistral AI
 - Work: Designed the entire app along with wireframing on Figma.
 
 ### Shubh Kanodia
-- GitHub: [Shubh Kanodia]([https://github.com/shubhkanodia](https://github.com/ShubhKanodia))
+- GitHub: [Shubh Kanodia](https://github.com/ShubhKanodia)
 - Work: Frontend development, integrated login through Firebase, and implemented the chat screen with image capture.
 
 ### Sowmesh Sharma
