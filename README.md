@@ -6,6 +6,7 @@
 - [Screenshots](#screenshots)
 - [How It Works](#how-it-works)
 - [Tech Stack](#tech-stack)
+- [Contributors](#contributors)
 - [Team bh.AI](#team-bhai)
 
 
