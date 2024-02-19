@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:emosense/screens/auth/firebase_auth_methods.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '/controllers/image_controller.dart';
 import '/models/image_model.dart';
 import '/models/quote_model.dart';
@@ -141,6 +143,10 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void _logout() async {
+    context.read<FirebaseAuthMethods>().signOut(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -165,10 +171,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     SizedBox(height: 20),
-                    Image.asset(
-                      'assets/images/bhai.png',
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      height: MediaQuery.of(context).size.height * 0.1,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.30),
+                        Image.asset(
+                          'assets/images/bhai.png',
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          height: MediaQuery.of(context).size.height * 0.1,
+                        ),
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.1),
+                        IconButton(
+                          onPressed: () {
+                            _logout();
+                          },
+                          icon: Icon(Icons.exit_to_app,
+                              color: Colors.white, size: 30),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 5),
                     Text(

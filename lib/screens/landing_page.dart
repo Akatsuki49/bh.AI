@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:emosense/screens/auth/login_screen.dart';
 
 class LandingPage extends StatelessWidget {
@@ -25,42 +24,32 @@ class LandingPage extends StatelessWidget {
                 -13.63 * 3.14 / 180), // Convert degrees to radians
           ),
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: screenHeight * 0.1),
-              Image.asset(
-                'assets/images/bhai.png',
-                width: screenWidth * 0.5,
-                height: screenHeight * 0.5,
-              ),
-              // // SvgPicture.asset(
-              // //   '/Users/shubh/development/WealHack/frontend/emosense/assets/images/bhai.svg',
-              //   width: screenWidth * 0.1,
-              //   height: screenHeight * 0.1,
-              // ),
-              SizedBox(height: screenHeight * 0.1),
-
-              //get started button :
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
-                },
-                //   child: SvgPicture.asset(
-                //     '/Users/shubh/development/WealHack/frontend/emosense/assets/images/get_started.svg',
-                //     width: screenWidth * 0.06,
-                //     height: screenHeight * 0.06,
-                //   ),
-                // ),
-                child: Image.asset(
-                  'assets/images/get_started.png',
-                  width: screenWidth * 0.2,
-                  height: screenHeight * 0.2,
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // SizedBox(height: screenHeight * 0.1),
+                Image.asset(
+                  'assets/images/bhai.png',
+                  width: screenWidth * 0.5,
+                  height: screenHeight * 0.5,
                 ),
-              ),
-            ],
+
+                //get started button :
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                  },
+                  child: Image.asset(
+                    'assets/images/get_started.png',
+                    width: screenWidth * 0.7,
+                    height: screenHeight * 0.7,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
